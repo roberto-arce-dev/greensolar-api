@@ -112,6 +112,21 @@ export class CotizacionController {
     return { success: true, data };
   }
 
+  @Get('cliente/:clienteId')
+  @ApiOperation({ summary: 'Cotizaciones de un cliente' })
+  async findByCliente(@Param('clienteId') clienteId: string) {
+    const data = await this.cotizacionService.findByCliente(clienteId);
+    return { success: true, data, total: data.length };
+  }
+
+  @Post('crear')
+  @HttpCode(HttpStatus.CREATED)
+  @ApiOperation({ summary: 'Crear nueva cotización' })
+  async crearCotizacion(@Body() cotizacionDto: any) {
+    const data = await this.cotizacionService.crear(cotizacionDto);
+    return { success: true, message: 'Cotización creada', data };
+  }
+
   @Patch(':id')
   @ApiOperation({ summary: 'Actualizar Cotizacion' })
   @ApiParam({ name: 'id', description: 'ID del Cotizacion' })

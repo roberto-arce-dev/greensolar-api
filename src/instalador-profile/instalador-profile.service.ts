@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { Model, Types } from 'mongoose';
 import { InstaladorProfile, InstaladorProfileDocument } from './schemas/instalador-profile.schema';
 import { CreateInstaladorProfileDto } from './dto/create-instalador-profile.dto';
 import { UpdateInstaladorProfileDto } from './dto/update-instalador-profile.dto';
@@ -13,14 +13,14 @@ export class InstaladorProfileService {
 
   async create(userId: string, dto: CreateInstaladorProfileDto): Promise<InstaladorProfile> {
     const profile = await this.instaladorprofileModel.create({
-      user: userId,
+      user: new Types.ObjectId(userId),
       ...dto,
     });
     return profile;
   }
 
   async findByUserId(userId: string): Promise<InstaladorProfile | null> {
-    return this.instaladorprofileModel.findOne({ user: userId }).populate('user', 'email role').exec();
+    return this.instaladorprofileModel.findOne({ user: new Types.ObjectId(userId) }).populate('user', 'email role').exec();
   }
 
   async findAll(): Promise<InstaladorProfile[]> {
@@ -29,7 +29,7 @@ export class InstaladorProfileService {
 
   async update(userId: string, dto: UpdateInstaladorProfileDto): Promise<InstaladorProfile> {
     const profile = await this.instaladorprofileModel.findOneAndUpdate(
-      { user: userId },
+      { user: new Types.ObjectId(userId) },
       { $set: dto },
       { new: true },
     );
@@ -40,7 +40,7 @@ export class InstaladorProfileService {
   }
 
   async delete(userId: string): Promise<void> {
-    const result = await this.instaladorprofileModel.deleteOne({ user: userId });
+    const result = await this.instaladorprofileModel.deleteOne({ user: new Types.ObjectId(userId) });
     if (result.deletedCount === 0) {
       throw new NotFoundException('Profile no encontrado');
     }

@@ -505,6 +505,135 @@
           }
         }
       ]
+    },
+    {
+      "name": "Cotización",
+      "item": [
+        {
+          "name": "Mis Cotizaciones",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cotizacion/cliente/{{clienteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cotizacion",
+                "cliente",
+                "{{clienteId}}"
+              ]
+            },
+            "description": "Historial de cotizaciones"
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Cotización",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/cotizacion/crear",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "cotizacion",
+                "crear"
+              ]
+            },
+            "description": "Solicitar cotización",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clienteId\": \"{{clienteId}}\",\n  \"tipoPropiedad\": \"casa\",\n  \"consumoPromedio\": 300\n}"
+            }
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints específicos de Cotización"
+    },
+    {
+      "name": "Proyecto",
+      "item": [
+        {
+          "name": "Mis Proyectos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/proyecto/cliente/{{clienteId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "proyecto",
+                "cliente",
+                "{{clienteId}}"
+              ]
+            },
+            "description": "Proyectos en ejecución"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints específicos de Proyecto"
+    },
+    {
+      "name": "Monitoreo",
+      "item": [
+        {
+          "name": "Monitoreo de Consumo",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/monitoreo/proyecto/{{proyectoId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "monitoreo",
+                "proyecto",
+                "{{proyectoId}}"
+              ]
+            },
+            "description": "Datos de consumo del proyecto"
+          },
+          "response": []
+        }
+      ],
+      "description": "Endpoints específicos de Monitoreo"
     }
   ],
   "variable": [

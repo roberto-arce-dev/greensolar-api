@@ -45,4 +45,14 @@ export class CotizacionService {
       throw new NotFoundException(`Cotizacion con ID ${id} no encontrado`);
     }
   }
+  async findByCliente(clienteId: string): Promise<Cotizacion[]> {
+    const result = await this.cotizacionModel.find({ cliente: clienteId });
+    return result;
+  }
+  async crear(dto: any): Promise<Cotizacion> {
+    const nuevo = await this.cotizacionModel.create(dto);
+    return nuevo;
+  }
+
+
 }
