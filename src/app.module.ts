@@ -10,6 +10,9 @@ import { AuthModule } from './auth/auth.module';
 import { UploadModule } from './upload/upload.module';
 import { ClienteProfileModule } from './cliente-profile/cliente-profile.module';
 import { InstaladorProfileModule } from './instalador-profile/instalador-profile.module';
+import { CotizacionModule } from './cotizacion/cotizacion.module';
+import { ProyectoSolarModule } from './proyectosolar/proyectosolar.module';
+import { MonitoreoConsumoModule } from './monitoreoconsumo/monitoreoconsumo.module';
 
 @Module({
   imports: [
@@ -43,6 +46,9 @@ import { InstaladorProfileModule } from './instalador-profile/instalador-profile
     ClienteProfileModule,
     InstaladorProfileModule,
     UploadModule,
+    CotizacionModule,
+    ProyectoSolarModule,
+    MonitoreoConsumoModule,
   ],
   controllers: [AppController],
   providers: [
