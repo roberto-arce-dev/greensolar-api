@@ -355,7 +355,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombre\": \"Nombre Actualizado\",\n  \"telefono\": \"+51 987654321\"\n}"
+              "raw": "{\n  \"nombre\": \"Valor de nombre\",\n  \"telefono\": \"+51 900000000\",\n  \"direccion\": \"Valor de direccion\",\n  \"tipoCliente\": \"Valor de tipoCliente\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/cliente-profile/me",
@@ -447,7 +447,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nombre\": \"Nombre Actualizado\",\n  \"telefono\": \"+51 987654321\"\n}"
+              "raw": "{\n  \"nombreCompleto\": \"Valor de nombreCompleto\",\n  \"telefono\": \"+51 900000000\",\n  \"certificaciones\": [\n    \"valor1\",\n    \"valor2\"\n  ],\n  \"especialidad\": \"Valor de especialidad\",\n  \"isVerified\": true\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/instalador-profile/me",
@@ -640,6 +640,31 @@
     {
       "key": "baseUrl",
       "value": "http://localhost:3006/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "filename",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "clienteId",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "proyectoId",
+      "value": "",
       "type": "string"
     }
   ]
